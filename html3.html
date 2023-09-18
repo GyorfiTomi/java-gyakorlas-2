@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <script> 
+        // Meghatározzuk a funkciót, amit akkor hívunk meg, ha a kép betöltődik
+        function kepBetolt() {
+            // Megkeressük a bekezdést, és beállítjuk a szövegét
+            var bekezdes = document.getElementById("bekezdes");
+            bekezdes.textContent = "Betöltődött";
+        }
+
+        // Meghatározzuk a funkciót, amit akkor hívunk meg, ha a képre kattintunk
+        function kepKattint() {
+            // Megkeressük a bekezdést, és beállítjuk a szövegét
+            var bekezdes = document.getElementById("bekezdes");
+            bekezdes.textContent = "Rákattintott";
+        }
+        </script>
+</head>
+<body>
+    <!-- Létrehozzuk a bekezdést -->
+    <p id="bekezdes"></p>
+    <!-- Létrehozzuk a képet, és hozzárendeljük a funkciókat, mint eseménykezelőket -->
+    <img id="kep" src="https://picsum.photos/200/300" alt="Véletlenszerű kép" onload="kepBetolt()" onclick="kepKattint()">
+</body>
+</html>

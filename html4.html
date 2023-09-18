@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Hozzáadjuk a CSS stílust a bekezdéshez, hogy automatikusan törje a szöveget */
+    p {
+    word-wrap: break-word;
+    }
+
+    </style>
+</head>
+<body>
+    <!-- Létrehozzuk a bekezdést -->
+    <p id="bekezdes"></p>
+    <!-- Létrehozzuk a beviteli mezőt -->
+    <input type="text" id="mezo" placeholder="Írj ide valamit">
+        <script> 
+        // Meghatározzuk a funkciót, amit akkor hívunk meg, ha a beviteli mezőben változik a szöveg
+        function szovegValtozik() {
+            // Megkeressük a bekezdést, és beállítjuk a szövegét a beviteli mező értékére
+            var bekezdes = document.getElementById("bekezdes");
+            bekezdes.textContent = this.value;
+        }
+
+        // Meghatározzuk a funkciót, amit akkor hívunk meg, ha az oldal betöltődik
+        function oldalBetolt() {
+            // Megkeressük a beviteli mezőt, és hozzárendeljük a funkciót, mint egy eseménykezelőt
+            var mezo = document.getElementById("mezo");
+            mezo.addEventListener("input", szovegValtozik);
+        }
+
+        // Hozzárendeljük a funkciót az ablakhoz, mint egy eseménykezelőt
+        window.addEventListener("load", oldalBetolt);
+        </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+        /* Hozzáadjuk a CSS stílust a gombhoz, hogy középre kerüljön */
+        button {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        </style>
+</head>
+<body>
+    <!-- Létrehozzuk a gombot, és beállítjuk a feliratát -->
+    <button id="gomb">Húzd ide az egeret</button>
+        <script> 
+        // Meghatározzuk a funkciót, amit akkor hívunk meg, ha az egér rákerül a gombra
+        function egerRakerul() {
+            // Megváltoztatjuk a gomb feliratát
+            this.textContent = "Sikerült";
+        }
+
+        // Meghatározzuk a funkciót, amit akkor hívunk meg, ha az oldal betöltődik
+        function oldalBetolt() {
+            // Megkeressük a gombot, és hozzárendeljük a funkciót, mint egy eseménykezelőt
+            var gomb = document.getElementById("gomb");
+            gomb.addEventListener("mouseover", egerRakerul);
+        }
+
+        // Hozzárendeljük a funkciót az ablakhoz, mint egy eseménykezelőt
+        window.addEventListener("load", oldalBetolt);
+        </script>
+</body>
+</html>
